@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
@@ -42,6 +43,9 @@ module.exports = {
     },
     
     plugins: [
-        new webpack.BannerPlugin("Copyright@2019")
+        new webpack.BannerPlugin("Copyright@2019"),
+        new HtmlWebpackPlugin({
+            template: __dirname + "/app/index.tmpl.html"
+        })
     ]
 };
