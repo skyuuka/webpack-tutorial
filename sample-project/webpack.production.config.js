@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 
 module.exports = {
@@ -52,6 +53,11 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(), 
         new webpack.optimize.OccurrenceOrderPlugin(), 
-        new ExtractTextPlugin("style.css")
+        new ExtractTextPlugin("style.css"),
+        new CleanWebpackPlugin({
+            root: __dirname,
+            verbose: true,
+            dry: false
+        })
     ]
 };
