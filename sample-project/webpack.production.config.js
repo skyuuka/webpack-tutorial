@@ -10,6 +10,9 @@ module.exports = {
         filename: "bundle.js"
     },
     devtool: 'none',
+    optimization: {
+        minimize: true
+    },
     devServer: {
         contentBase: "./public",
         historyApiFallback: true,
@@ -49,7 +52,6 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(), 
         new webpack.optimize.OccurrenceOrderPlugin(), 
-        new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin("style.css")
     ]
 };
